@@ -6,7 +6,7 @@ import org.springframework.messaging.support.MessageBuilder
 import java.util.function.Supplier
 
 @Configuration
-class KinesisProducerBinder {
+class KinesisMessageProducerBinder {
 
     /**
      * Output greetings to the output channel consistently.

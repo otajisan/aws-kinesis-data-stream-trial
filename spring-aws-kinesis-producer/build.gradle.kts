@@ -65,9 +65,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     // https://www.baeldung.com/spring-aws-kinesis
-//    implementation("com.amazonaws:aws-java-sdk-kinesis:1.12.451")
-//    implementation("com.amazonaws:amazon-kinesis-producer:0.15.6")
-//    implementation("com.amazonaws:amazon-kinesis-client:1.14.10")
+    //implementation("com.amazonaws:aws-java-sdk-kinesis:1.12.451")
+    //implementation("com.amazonaws:amazon-kinesis-producer:0.15.6")
+    //implementation("com.amazonaws:amazon-kinesis-client:1.14.10")
     implementation("org.springframework.cloud:spring-cloud-stream-binder-kinesis:3.0.0")
     // Open API
     runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.7.0")

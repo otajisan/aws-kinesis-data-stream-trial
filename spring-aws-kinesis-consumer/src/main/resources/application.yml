@@ -1,1 +1,59 @@
+spring:
+  application:
+    name: spring-aws-kinesis-consumer
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  profiles:
+    active: local
+  cloud:
+    stream:
+      bindings:
+        input-in-0:
+          destination: mtaji-test-stream
+          group: mtaji-test-stream-group
+          content-type: text/plain
+        function:
+          definition: input
 
+server:
+  port: 18081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+  endpoint:
+    health:
+      show-details: always
+  server:
+    port: 38081
+
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+      instance-profile: false
+    region:
+      static: ap-northeast-1
+    end-point:
+      # NOTE: should blank in production env
+      uri:
+    stack:
+      auto: false
+    instance:
+      data:
+        enabled: false
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: ERROR
+        internal:
+          InstanceMetadataServiceResourceFetcher: ERROR
