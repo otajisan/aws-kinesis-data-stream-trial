@@ -14,5 +14,5 @@ class KinesisMessageProduceController(
 
     @PostMapping("/produce/{text}")
     fun produce(@PathVariable text: String): ResponseEntity<String> =
-        ResponseEntity.ok(kinesisMessageProducer.produce(text).get())
+        ResponseEntity.ok(kinesisMessageProducer.produce(text))
 }

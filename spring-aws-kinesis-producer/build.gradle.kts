@@ -68,7 +68,9 @@ dependencies {
     //implementation("com.amazonaws:aws-java-sdk-kinesis:1.12.451")
     //implementation("com.amazonaws:amazon-kinesis-producer:0.15.6")
     //implementation("com.amazonaws:amazon-kinesis-client:1.14.10")
+    //implementation("org.springframework.cloud:spring-cloud-stream:4.0.2")
     implementation("org.springframework.cloud:spring-cloud-stream-binder-kinesis:3.0.0")
+    //implementation("org.springframework.cloud:spring-cloud-stream-dependencies:4.0.2")
     // Open API
     runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.7.0")
     implementation("org.springdoc:springdoc-openapi-webmvc-core:1.7.0")

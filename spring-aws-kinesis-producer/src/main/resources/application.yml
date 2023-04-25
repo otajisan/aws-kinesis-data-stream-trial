@@ -12,6 +12,9 @@ spring:
       bindings:
         poller:
           fixed-delay: 3000
+        greeting:
+          destination: greeting
+          content-type: text/plain
         output-out-0:
           destination: mtaji-test-stream
           content-type: text/plain
