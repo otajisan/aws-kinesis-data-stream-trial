@@ -8,14 +8,17 @@ spring:
   profiles:
     active: local
   cloud:
+    function:
+      definition: produceConsistently;produceReactive
     stream:
       bindings:
         poller:
           fixed-delay: 3000
-        greeting:
-          destination: greeting
+        # NOTE: {producer bean name}-out-{sequence number}
+        produceConsistently-out-0:
+          destination: mtaji-test-stream
           content-type: text/plain
-        output-out-0:
+        produceReactive-out-0:
           destination: mtaji-test-stream
           content-type: text/plain
 

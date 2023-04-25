@@ -14,7 +14,7 @@ class KinesisMessageProducerBinder {
      * @return
      */
     @Bean
-    fun output(): Supplier<String> {
+    fun produceConsistently(): Supplier<String> {
         return Supplier {
             val message = MessageBuilder.withPayload("Hello World").build()
             println("Sending message: $message")
