@@ -6,8 +6,20 @@ import java.util.function.Consumer
 
 @Configuration
 class KinesisConsumerBinder {
+
+    companion object {
+        private val log by logger()
+    }
+
     @Bean
     fun input(): Consumer<String> {
-        return Consumer { println("Received message: $it") }
+        return Consumer { log.info("Received message: $it") }
     }
+
+    @Bean
+    fun consumeGreeting(): Consumer<GreetingMessage> =
+        Consumer {
+            log.info("Received message: $it")
+        }
+
 }

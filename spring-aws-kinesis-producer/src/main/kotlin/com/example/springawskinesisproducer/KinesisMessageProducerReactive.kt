@@ -8,12 +8,17 @@ import java.util.function.Supplier
 
 @Service
 class KinesisMessageProducerReactive {
+
+    companion object {
+        private val log by logger()
+    }
+
     val message: Sinks.Many<GreetingMessage> = Sinks.many().unicast().onBackpressureBuffer()
 
     @Bean
     fun produceReactive(): Supplier<Flux<GreetingMessage>> {
         return Supplier {
-            println(message)
+            log.info("Sending message by reactive: $message")
             message.asFlux()
         }
     }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.function.ServerRequest
 import org.springframework.web.servlet.function.ServerResponse
 import reactor.core.publisher.Mono
+import java.util.*
 
 @RestController
 @RequestMapping("/kinesis")
@@ -22,5 +23,9 @@ class KinesisMessageProduceController(
 
     @PostMapping("/produceReactive/{text}")
     fun produceReactive(@PathVariable text: String): ResponseEntity<String> =
-        ResponseEntity.ok(kinesisMessageProducerReactive.message.tryEmitNext(GreetingMessage(text)).toString())
+        ResponseEntity.ok(
+            kinesisMessageProducerReactive.message.tryEmitNext(
+                GreetingMessage(id = UUID.randomUUID(), message = text)
+            ).toString()
+        )
 }

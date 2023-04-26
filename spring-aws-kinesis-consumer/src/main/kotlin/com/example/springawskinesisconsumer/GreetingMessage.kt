@@ -1,6 +1,6 @@
-package com.example.springawskinesisproducer
+package com.example.springawskinesisconsumer
 
-import java.util.UUID
+import java.util.*
 
 data class GreetingMessage(
     val id: UUID,

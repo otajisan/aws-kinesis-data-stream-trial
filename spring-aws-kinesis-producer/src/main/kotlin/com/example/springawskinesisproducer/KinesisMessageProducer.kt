@@ -14,6 +14,7 @@ class KinesisMessageProducer(
 
     companion object {
         private const val OUTPUT_CHANNEL = "mtaji-test-stream"
+        private val log by logger()
     }
 
     /**
@@ -24,7 +25,7 @@ class KinesisMessageProducer(
      */
     fun produce(text: String): String {
         val message = MessageBuilder.withPayload(text).build()
-        println("Sending message: $message")
+        log.info("Sending message: $message")
         streamBridge.send(OUTPUT_CHANNEL, message)
         return message.payload as String
     }

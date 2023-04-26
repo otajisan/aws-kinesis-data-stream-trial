@@ -8,14 +8,19 @@ spring:
   profiles:
     active: local
   cloud:
+    function:
+      definition: input;consumeGreeting
     stream:
       bindings:
         input-in-0:
           destination: mtaji-test-stream
           group: mtaji-test-stream-group
           content-type: text/plain
-        function:
-          definition: input
+        consumeGreeting-in-0:
+          destination: greeting
+          group: greeting-group
+          content-type: application/json
+
 
 server:
   port: 18081

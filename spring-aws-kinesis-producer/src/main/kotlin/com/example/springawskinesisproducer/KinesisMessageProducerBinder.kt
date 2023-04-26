@@ -8,6 +8,10 @@ import java.util.function.Supplier
 @Configuration
 class KinesisMessageProducerBinder {
 
+    companion object {
+        private val log by logger()
+    }
+
     /**
      * Output greetings to the output channel consistently.
      *
@@ -17,7 +21,7 @@ class KinesisMessageProducerBinder {
     fun produceConsistently(): Supplier<String> {
         return Supplier {
             val message = MessageBuilder.withPayload("Hello World").build()
-            println("Sending message: $message")
+            log.info("Sending message: $message")
             message.payload as String
         }
     }
